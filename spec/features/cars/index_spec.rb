@@ -23,5 +23,8 @@ describe "Cars Index Page", type: :feature do
                 expect(page).to have_content("GR Supra 3.0")
             end
         end
+
+
+
     end
 end
