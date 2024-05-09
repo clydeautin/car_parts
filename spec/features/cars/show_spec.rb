@@ -15,17 +15,20 @@ describe "Cars show page" do
                 supra = Car.create!(manufacturer: "Toyota", 
                                     model: "GR Supra 3.0", 
                                     base_msrp: "55400", 
-                                    manual_option: true, 
+                                    manual_option: true,
+                                    model_year: "2021",
                                     category: "Sports Car")
                 m4 = Car.create!(manufacturer: "BMW", 
                                     model: "M4", 
                                     base_msrp: "79100", 
-                                    manual_option: true, 
+                                    manual_option: true,
+                                    model_year: "2025",
                                     category: "Coupe")
 
                 visit "/cars/#{supra.id}"
 
                 expect(page).to have_content("Toyota")
+                expect(page).to have_content("2021")
                 expect(page).to have_content("GR Supra 3.0")
                 expect(page).to have_content("55400")
                 expect(page).to have_content("Sports Car")

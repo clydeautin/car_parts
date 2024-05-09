@@ -16,7 +16,8 @@ describe "Cars Index Page", type: :feature do
                 supra = Car.create!(manufacturer: "Toyota", 
                                     model: "GR Supra 3.0", 
                                     base_msrp: "55400", 
-                                    manual_option: true, category: "Sports Car")
+                                    manual_option: true, 
+                                    category: "Sports Car")
                 visit "/cars"
 
                 expect(page).to have_content("Toyota")
