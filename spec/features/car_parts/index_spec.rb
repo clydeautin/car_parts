@@ -13,12 +13,18 @@ describe "Car Parts Index"
     describe "As a visitor" do
         describe "When I visit car_parts index" do
             it "shows all the car parts with attributes" do
-                ev_intake = CarParts.create!(car_id: "1",
+                supra = Car.create!(manufacturer: "Toyota", 
+                                    model: "GR Supra 3.0", 
+                                    base_msrp: "55400", 
+                                    manual_option: true, 
+                                    category: "Sports Car",
+                                    id: 1)
+                ev_intake = CarPart.create!(car_id: "1",
                                             category: "Intake System",
                                             manuf_country: "UK",
                                             price: 1325,
                                             weight_lb: 9.11,
-                                            manufacturer: "Eventuri",
+                                            manuf: "Eventuri",
                                             primary_material: "Carbon Fiber",
                                             oem: false)
                 
