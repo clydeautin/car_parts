@@ -1,0 +1,17 @@
+Parts for just this car
+
+<% @car_parts.each do |part| %>
+    <h3>Type: <%= part.category %></h3>
+    <h3>Made In: <%= part.manuf_country %></h3>
+    <h3> Cost $<%= part.price %></h3>
+    <h3>Made By: <%= part.manuf %></h3>
+    <h3>Material: <%= part.primary_material %></h3>
+    <h3>OEM: <%= 
+        if part.oem = true
+        "Yes"
+        else
+        "No"
+        end
+        %>
+    </h3>
+<% end %>
