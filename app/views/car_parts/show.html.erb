@@ -1,0 +1,16 @@
+<h1>Single Item View</h1>
+<h3><%= @car_part.manuf %></h3>
+<h3><%= @car_part.category %></h3>
+<p>Made in: <%= @car_part.manuf_country %> </p>
+<p>Price: $<%= @car_part.price %> </p>
+<p>Weight: $<%= @car_part.weight_lb %> </p>
+<p>Made of: <%= @car_part.primary_material %> </p>
+<p>OEM: <%= 
+    if @car_part.oem = true
+        "Yes"
+    else
+        "No"
+    end
+    %> </p>
+
+

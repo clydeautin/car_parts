@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get "/cars", to: "cars#index"
   get "/cars/:id", to: "cars#show"
   get "/car_parts", to: "car_parts#index"
+  get "/car_parts/:id", to: "car_parts#show"
+  
 end
