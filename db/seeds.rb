@@ -7,33 +7,54 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Car.create!(manufacturer: "Toyota", 
-            model: "GR Supra 3.0", 
-            base_msrp: "55400", 
-            manual_option: true, 
-            category: "Sports Car")
+CarPart.destroy_all
+Car.destroy_all
 
-CarPart.create!(car_id: "1",
-        category: "Intake System",
-        manuf_country: "UK",
-        price: 1325,
-        weight_lb: 9.11,
-        manuf: "Eventuri",
-        primary_material: "Carbon Fiber",
-        oem: false)
 
-        ak_exhaust = CarPart.create!(car_id: "1",
-                                    category: "Exhaust System",
-                                    manuf_country: "SVN",
-                                    price: 3171,
-                                    weight_lb: 51,
-                                    manuf: "Akrapovic",
-                                    primary_material: "Titanium",
-                                    oem: false)
+a90 = Car.create!(manufacturer: "Toyota", 
+                        model: "GR Supra 3.0", 
+                        base_msrp: 55400, 
+                        manual_option: true, 
+                        category: "Sports Car",
+                        model_year: "2021")
 
-Car.create!(manufacturer: "BMW", 
-            model: "M4", 
-            base_msrp: "79100", 
-            manual_option: true,
-            model_year: "2025",
-            category: "Coupe")
+ev_intake = CarPart.create!(car_id: "#{a90.id}",
+                                category: "Intake System",
+                                manuf_country: "UK",
+                                price: 1325,
+                                weight_lb: 9.11,
+                                manuf: "Eventuri",
+                                primary_material: "Carbon Fiber",
+                                oem: false)
+
+ak_exhaust = CarPart.create!(car_id: "#{a90.id}",
+                        category: "Exhaust System",
+                        manuf_country: "SVN",
+                        price: 3171,
+                        weight_lb: 51,
+                        manuf: "Akrapovic",
+                        primary_material: "Titanium",
+                        oem: false)
+
+g82 = Car.create!(manufacturer: "BMW", 
+                        model: "M4", 
+                        base_msrp: 79100, 
+                        manual_option: true,
+                        model_year: "2025",
+                        category: "Coupe")
+
+f82 = Car.create!(manufacturer: "BMW", 
+                        model: "M4", 
+                        base_msrp: "65000", 
+                        manual_option: true,
+                        model_year: 2015,
+                        category: "Coupe")
+
+@m_p_spoiler = CarPart.create!(car_id: "#{g82.id}",
+                                category: "Exterior",
+                                manuf_country: "GER",
+                                price: 2570,
+                                weight_lb: 18,
+                                manuf: "M Performance",
+                                primary_material: "Carbon Fiber",
+                                oem: true)

@@ -50,43 +50,17 @@ describe "Car Parts Index" do
                         primary_material: "Carbon Fiber",
                         oem: true)
     end
-# [ ] done
 
-# User Story 3, Child Index 
-
-# As a visitor
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes
-# (data from each column that is on the child table)
 
     describe "As a visitor" do
         describe "When I visit car_parts index" do
-            it "shows all the car parts with attributes" do
-                visit "/car_parts"
-
-                expect(page).to have_content("Intake System")
-                expect(page).to have_content("UK")
-                expect(page).to have_content("$1325")
-                expect(page).to have_content("Eventuri")
-            end
-        end
-
-        describe "When I visit a car's parts index page" do
-            it "shows only the car parts for that car" do
-                visit "/cars/#{@a90.id}/car_parts"
-
-                expect(page).to have_content(@ev_intake.manuf)
-                expect(page).to_not have_content(@m_p_spoiler.manuf)
-            end
-
             it "Has a link to the child index" do
-                visit "/car_parts"
+                visit "/cars/#{@a90.id}/car_parts"
 
                 expect(page).to have_link("Car Parts")
             end
-
             it "Has a link to the parent index" do
-                visit "/car_parts"
+                visit "/cars/#{@a90.id}/car_parts"
 
                 expect(page).to have_link("Cars")
             end

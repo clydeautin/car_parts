@@ -5,6 +5,7 @@ class CreateCars < ActiveRecord::Migration[7.1]
       t.string :model
       t.integer :base_msrp
       t.boolean :manual_option
+      t.integer :category
       t.timestamps
     end
   end

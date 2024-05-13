@@ -1,5 +1,8 @@
-<h3><%= @car.manufacturer %></h3>
-<h3><%= @car.model_year %> <%= @car.model %></h3>
+<%= link_to 'Car Parts', "/car_parts" %> | <%= link_to 'Cars', "/cars" %>
+
+<h2><%= @car.manufacturer %></h2>
+<h3><%= @car.model_year %></h3> 
+<h3><%= @car.model %></h3>
 <p>Starting MSRP: $<%= @car.base_msrp %></p>
 <p>Manual offered: <%= 
     if @car.manual_option = true
@@ -10,3 +13,4 @@
     %>
 </p>
 <p>Car type: <%= @car.category %></p>
+<p>Parts available: <%= @car.car_parts.count %></p>

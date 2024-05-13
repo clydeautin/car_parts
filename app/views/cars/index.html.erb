@@ -1,5 +1,9 @@
+<%= link_to 'Car Parts', "/car_parts" %> | <%= link_to 'Cars', "/cars" %>
+
 <h1>All Cars</h1>
 
 <% @cars.each do |car| %>
-    <h3><%= car.manufacturer %> <%= car.model %></h3>
+        <h3>Make: <%= car.manufacturer %></h3>
+        <p>Model: <%= car.model %></p>
+        <p>created on: <%= car.created_at %></p>
 <% end %>
