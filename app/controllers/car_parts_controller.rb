@@ -7,4 +7,8 @@ class CarPartsController < ApplicationController
     def show
         @car_part = CarPart.find(params[:id])
     end
+
+    def create
+        require 'pry'; binding.pry
+    end
 end

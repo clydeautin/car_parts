@@ -90,6 +90,8 @@ describe "Car Parts Index" do
 
                 expect(page).to have_link("Cars")
             end
+
+
         end
     end
 end

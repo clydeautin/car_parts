@@ -1,0 +1,24 @@
+<%= form_with model: @car, data: { turbo: false } do |form| %>
+    <p><h1>Edit car:</h1></p>
+    <p>Make: <%= form.text_field :manufacturer %><br/></p>
+    <p>Model: <%= form.text_field :model %></p>
+    <p>Base MSRP: <%= form.number_field :msrp %></p>
+    <p>Manual option: <%= form.check_box :manual_option %></p>
+    <p>Car Type: <%= form.select :category, options_for_select(["SUV", 
+                                                                "Sedan", 
+                                                                "Truck", 
+                                                                "Coupe", 
+                                                                "Van", 
+                                                                "Hybrid", 
+                                                                "EV", 
+                                                                "Hatchback", 
+                                                                "Luxury SUV", 
+                                                                "Luxury Car", 
+                                                                "Sports Car", 
+                                                                "Convertible", 
+                                                                "Super Car", 
+                                                                "Hyper Car"
+                                                                ]) %></p>
+    <p>Model Year: <%= form.select :model_year, options_for_select((1900..Time.now.year).to_a.reverse) %></p>
+    <%= form.submit  "Update Car" %>
+<% end %>

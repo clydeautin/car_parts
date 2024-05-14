@@ -89,6 +89,27 @@ describe "Cars Index Page", type: :feature do
 
                 expect(page).to have_link("Cars")
             end
+            it "Has a link to create a New Car" do
+                visit "/cars"
+
+                expect(page).to have_link("New Car")
+
+                click_link("New Car")
+
+                expect(page).to have_current_path("/cars/new")
+
+                fill_in "manufacturer", with: "Toyota"
+                fill_in "model", with: "Camry"
+                check "manual_option"
+                select "Sedan", from: "category"
+                select "2023", from: "model_year"
+                fill_in "msrp", with: "24000"
+            
+                click_button "Submit"
+                expect(page).to have_current_path("/cars")
+                expect(page).to have_content("Toyota")
+                expect(page).to have_content("Camry")
+            end
         end
 
 

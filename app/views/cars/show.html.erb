@@ -4,13 +4,10 @@
 <h3><%= @car.model_year %></h3> 
 <h3><%= @car.model %></h3>
 <p>Starting MSRP: $<%= @car.base_msrp %></p>
-<p>Manual offered: <%= 
-    if @car.manual_option = true
-        "Yes"
-    else
-        "No"
-    end
-    %>
-</p>
+<p>Manual offered: <%= @car.manual_option == true ? "Yes" : "No" %></p>
 <p>Car type: <%= @car.category %></p>
 <p>Parts available: <%= @car.car_parts.count %></p>
+
+<p><%= link_to 'Update Car', edit_car_path(@car) %></p>
+
+<p><%= link_to 'View Available Parts', car_car_parts_path(@car) %></p>

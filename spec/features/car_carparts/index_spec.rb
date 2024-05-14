@@ -64,6 +64,29 @@ describe "Car Parts Index" do
 
                 expect(page).to have_link("Cars")
             end
+
+            it "Has a link to create a new car part" do
+                visit "/cars/#{@a90.id}/car_parts"
+
+                expect(page).to have_link("Create Car Part")
+
+                click_link("Create Car Part")
+
+                expect(page).to have_current_path("/cars/#{@a90.id}/car_parts/new")
+
+                fill_in "category", with: "exhaust"
+                fill_in "manuf_country", with: "TWE"
+                fill_in "price", with: 1500
+                fill_in "weight_lb", with: 25
+                fill_in "manuf", with: "Armytrix"
+                fill_in "primary_material", with: "Titanium"
+
+                click_button "Create Car Part"
+
+                expect(page).to have_current_path("/cars/#{@a90.id}/car_parts")
+                expect(page).to have_content("1500")
+                expect(page).to have_content("Armytrix")
+            end
         end
     end
 end

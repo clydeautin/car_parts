@@ -1,0 +1,11 @@
+<%= form_with url: "/cars/#{@car.id}/car_parts", method: :post, local: true do |form| %>
+    <h1>Enter a new car part:</h1>
+    <p>Manufacturer: <%= form.text_field :manuf %><br/></p>
+    <p>Category: <%= form.text_field :category %></p>
+    <p>Price: <%= form.number_field :price %></p>
+    <p>Weight (lb): <%= form.number_field :weight_lb %></p>
+    <p>OEM: <%= form.check_box :oem %></p>
+    <p>Primary Material: <%= form.text_field :primary_material %></p>
+    <p>Built in: <%= form.text_field :manuf_country %></p>
+    <%= form.submit "Create Car Part" %>
+<% end %>

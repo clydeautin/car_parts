@@ -9,7 +9,7 @@ describe "Cars show page" do
                                 category: "Sports Car",
                                 model_year: 2021)
 
-        @ev_intake = CarPart.create!(car_id: "#{@a90.id}",
+        @ev_intake = CarPart.create!(car_id: @a90.id,
                         category: "Intake System",
                         manuf_country: "UK",
                         price: 1325,
@@ -18,7 +18,7 @@ describe "Cars show page" do
                         primary_material: "Carbon Fiber",
                         oem: false)
 
-        @ak_exhaust = CarPart.create!(car_id: "#{@a90.id}",
+        @ak_exhaust = CarPart.create!(car_id: @a90.id,
                 category: "Exhaust System",
                 manuf_country: "SVN",
                 price: 3171,
@@ -41,7 +41,7 @@ describe "Cars show page" do
                 model_year: 2015,
                 category: "Coupe")
 
-        @m_p_spoiler = CarPart.create!(car_id: "#{@g82.id}",
+        @m_p_spoiler = CarPart.create!(car_id: @g82.id,
                         category: "Exterior",
                         manuf_country: "GER",
                         price: 2570,
@@ -90,6 +90,29 @@ describe "Cars show page" do
                 visit "/cars/#{@a90.id}"
 
                 expect(page).to have_link("Cars")
+            end
+
+            it "Has a link to view car parts for the car" do
+                visit "/cars/#{@a90.id}"
+
+                expect(page).to have_link('View Available Parts', href: "/cars/#{@a90.id}/car_parts")
+            end
+
+            it "Has a link to edit the car attributes" do
+                visit car_path(@a90)
+
+                expect(page).to have_link("Update Car")
+
+                click_link("Update Car")
+
+                expect(page).to have_current_path(edit_car_path(@a90))
+
+                select "2022", from: "car_model_year"
+
+                click_button "Update Car"
+                expect(page).to have_current_path(car_path(@a90))
+
+                expect(page).to have_content("2022")
             end
         end
     end

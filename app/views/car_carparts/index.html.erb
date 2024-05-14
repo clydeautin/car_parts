@@ -1,6 +1,8 @@
 <%= link_to 'Car Parts', "/car_parts" %> | <%= link_to 'Cars', "/cars" %>
 
-Parts for just this car
+<h1>Parts for just this car</h1>
+
+<p><%= link_to 'Create Car Part', "/cars/#{@car.id}/car_parts/new" %></p>
 
 <% @car_parts.each do |part| %>
     <h3>Type: <%= part.category %></h3>
